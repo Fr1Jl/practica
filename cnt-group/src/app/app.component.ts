@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'cnt-group';
+  title: string = 'Hello, Angular';
+  operation = (25 + 15) * 2 - 10 / 5;
 }

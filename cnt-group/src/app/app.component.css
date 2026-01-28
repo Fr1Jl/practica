@@ -1,0 +1,17 @@
+.result-container {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.result {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+small {
+  color: #7f8c8d;
+  font-style: italic;
+}
