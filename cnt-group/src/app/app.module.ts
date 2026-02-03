@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import { HeaderComponent } from './@theme/components/header/header.component';
+import { MenuParentsComponent } from './@theme/components/menu/components/menu-parents/menu-parents.component';
+import { MenuChildrensComponent } from './@theme/components/menu/components/menu-childrens/menu-childrens.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PagesComponent,
     HeaderComponent,
+    MenuParentsComponent,
+    MenuChildrensComponent,
   ],
   imports: [
     BrowserModule,
