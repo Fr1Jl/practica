@@ -7,6 +7,7 @@ import { PagesComponent } from './pages/pages.component';
 import { HeaderComponent } from './@theme/components/header/header.component';
 import { MenuParentsComponent } from './@theme/components/menu/components/menu-parents/menu-parents.component';
 import { MenuChildrensComponent } from './@theme/components/menu/components/menu-childrens/menu-childrens.component';
+import { ThemeSwitcherComponent } from './@theme/components/header/theme-switcher/theme-switcher.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MenuChildrensComponent } from './@theme/components/menu/components/menu
     HeaderComponent,
     MenuParentsComponent,
     MenuChildrensComponent,
+    ThemeSwitcherComponent,
   ],
   imports: [
     BrowserModule,
