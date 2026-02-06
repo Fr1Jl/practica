@@ -8,6 +8,9 @@ import { HeaderComponent } from './@theme/components/header/header.component';
 import { MenuParentsComponent } from './@theme/components/menu/components/menu-parents/menu-parents.component';
 import { MenuChildrensComponent } from './@theme/components/menu/components/menu-childrens/menu-childrens.component';
 import { ThemeSwitcherComponent } from './@theme/components/header/theme-switcher/theme-switcher.component';
+import { MainPageComponent } from './pages/sections/main-page/main-page.component';
+import { AdminPageComponent } from '../app/pages/sections/modules/administration/pages/admin-page/admin-page.component';
+import { UsersPageComponent } from '../app/pages/sections/modules/administration/pages/users-page/users-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { ThemeSwitcherComponent } from './@theme/components/header/theme-switche
     MenuParentsComponent,
     MenuChildrensComponent,
     ThemeSwitcherComponent,
+    MainPageComponent,
+    AdminPageComponent,
+    UsersPageComponent,
   ],
   imports: [
     BrowserModule,
