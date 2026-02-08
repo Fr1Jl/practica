@@ -1,0 +1,27 @@
+<header>Добавить пользователя</header>
+<main>
+  <form [formGroup]="addUserForm" (ngSubmit)="addNewUser()">
+    <input type="text" placeholder="Логин" formControlName="userLogin" />
+    <input type="text" placeholder="Пароль" formControlName="userPassword" />
+    <input type="text" placeholder="Имя" formControlName="userFirstName" />
+    <input
+      type="text"
+      placeholder="Фамилия"
+      formControlName="userLastName"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Отчество"
+      formControlName="userPatronymic"
+      required
+    />
+    <input
+      type="date"
+      placeholder="Дата рождения"
+      formControlName="userBirthday"
+      required
+    />
+    <button type="submit" [disabled]="addUserForm.invalid">Добавить</button>
+  </form>
+</main>

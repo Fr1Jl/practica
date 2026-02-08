@@ -11,6 +11,8 @@ import { ThemeSwitcherComponent } from './@theme/components/header/theme-switche
 import { MainPageComponent } from './pages/sections/main-page/main-page.component';
 import { AdminPageComponent } from '../app/pages/sections/modules/administration/pages/admin-page/admin-page.component';
 import { UsersPageComponent } from '../app/pages/sections/modules/administration/pages/users-page/users-page.component';
+import { TableComponent } from './@theme/components/ui/table/table.component';
+import { AddUserFormComponent } from './modules/administration/pages/users-page/components/add-user-form/add-user-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { UsersPageComponent } from '../app/pages/sections/modules/administration
     MainPageComponent,
     AdminPageComponent,
     UsersPageComponent,
+    TableComponent,
+    AddUserFormComponent,
   ],
   imports: [
     BrowserModule,
