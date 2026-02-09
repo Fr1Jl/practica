@@ -6,6 +6,8 @@
       [ngClass]="{ 'show-children': subItem.showSubMenu }" 
       tabindex="0">
 
+      [routerLink]="subItem.itemLink"
+
       <span>
         {{ subItem.itemName }}
         <span 

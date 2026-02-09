@@ -1,6 +1,6 @@
 <ul class="nav-list">
   <li *ngFor="let item of menuParentItems">
-    <a [routerLink]="item.itemLink" (click)="onSelectItem($event, item)">
+      <a [routerLink]="item.itemLink" (click)="onSelectItem($event, item)">{{ item.itemName }}</a>
       {{item.itemName}}
      </a>
   </li>
