@@ -5,12 +5,14 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AdministrationRoutingModule } from './administration-routing';
 import { FormsModule } from '@angular/forms';
 import { AddUserFormComponent } from './pages/users-page/components/add-user-form/add-user-form.component';
+import { EditUserComponent } from './pages/users-page/components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AdminPageComponent,
     UsersPageComponent,
-    AddUserFormComponent
+    AddUserFormComponent,
+    EditUserComponent
   ],
   imports: [
     AdministrationRoutingModule,
