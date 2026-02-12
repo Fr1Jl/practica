@@ -4,8 +4,8 @@ table {
 }
 
 th, td {
-  border: 1px solid var(--block-child-border-color);
-  padding: 8px;
+  padding: 10px;
+  font-size: 17px;
 }
 
 th {
@@ -14,4 +14,11 @@ th {
 
 td {
   background-color: var(--block-child-background);
+  text-align: center;
+}
+
+tbody tr:hover td {
+  background-color: rgba(61, 83, 209, 0.767) !important;
+  cursor: pointer;
+  color: whitesmoke;
 }

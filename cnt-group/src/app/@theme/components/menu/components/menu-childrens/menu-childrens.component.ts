@@ -39,6 +39,8 @@ export class MenuChildrensComponent implements OnInit {
     }
   }
 
+  
+
   // корректирует вставку иконки
   getSafeHtml(icon: string | null): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(icon || '');

@@ -63,3 +63,14 @@
   color: var(--text-color);
   cursor: pointer;
 }
+
+button {
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--color-indigo-500);
+  color: rgb(233, 233, 233);
+  font-size: 15px;
+  cursor: pointer;
+}
