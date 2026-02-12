@@ -51,3 +51,15 @@
   width: 100%;
   padding: 1rem;
 }
+
+.users-page__header>button {
+  font-size: 14px;
+  padding: 7px;
+  border-radius: 7px;
+  color: white;
+  outline: none;
+  background-color: var(--block-child-background);
+  border: 1px solid var(--block-child-border-color);
+  color: var(--text-color);
+  cursor: pointer;
+}

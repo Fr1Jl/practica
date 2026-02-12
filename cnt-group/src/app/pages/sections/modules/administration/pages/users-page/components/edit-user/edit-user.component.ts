@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserRegister } from 'src/app/domains/users/models/user.model';
+import { UserService } from 'src/app/domains/users/services/user.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,7 +14,12 @@ export class EditUserComponent implements OnInit, OnChanges {
 
   editUserForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  isAdmin = false;
+  isStudent = false;
+
+
+
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.editUserForm = this.fb.group({
       userLogin: ['', [Validators.required, Validators.minLength(2)]],
       userPassword: ['', [Validators.required]],
@@ -47,7 +53,16 @@ export class EditUserComponent implements OnInit, OnChanges {
         userCreateDate: this.selectedUser.userCreateDate,
         userBirthday: this.formatDate(this.selectedUser.userBirthday)
       });
+      this.loadUserRoles();
     }
+  }
+  loadUserRoles() {
+  if (this.selectedUser) {
+    this.userService.getUserRoles(this.selectedUser.userId).subscribe(roles => {
+      this.isAdmin = roles.includes('admin');
+      this.isStudent = roles.includes('student');
+    });
+  }
   }
 
   // получение ошибок валидации
@@ -64,6 +79,26 @@ export class EditUserComponent implements OnInit, OnChanges {
       };
       this.userUpdate.emit(updatedUser);
     }
+  }
+  onRoleChange(role: string, event: any) {
+  const isChecked = event.target.checked;
+  if (role === 'admin') {
+    this.isAdmin = isChecked;
+  } else if (role === 'student') {
+    this.isStudent = isChecked;
+  }
+  }
+  onSubmitRoles() {
+  if (this.selectedUser) {
+    const roles = [];
+    if (this.isAdmin) roles.push('admin');
+    if (this.isStudent) roles.push('student');
+    this.userService.updateUserRoles(this.selectedUser.userId, roles).subscribe(response => {
+      console.log('Roles updated:', response);
+    }, error => {
+      console.error('Error updating roles:', error);
+    });
+  }
   }
 
   // обязательное форматирование даты для birthday
