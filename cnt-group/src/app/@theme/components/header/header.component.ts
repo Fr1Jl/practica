@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  title: string = 'CNT Group';
+title: string = 'CNT Group';
 
 }

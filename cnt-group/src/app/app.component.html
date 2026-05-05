@@ -1,8 +1,12 @@
-<router-outlet></router-outlet>
+<div class="app-container">
 
+  <div class="main-wrapper">
+    <app-sidebar></app-sidebar>
 
-<div class="result-container">
-  <h1>Результат вычисления:</h1>
-  <p class="result">{{ operation }}</p>
-  <small>Выражение: (25 + 15) × 2 − 10 ÷ 5</small>
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <app-footer></app-footer>
 </div>

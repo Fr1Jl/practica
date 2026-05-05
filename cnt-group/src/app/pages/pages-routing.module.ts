@@ -12,9 +12,9 @@ const routes: Routes = [
         path: 'mainPage',
         component: MainPageComponent,
       },
-      {
+            {
         path: 'administration',
-         loadChildren: () => import('../pages/sections/modules/administration/administration.module').then(module => module.AdministrationModule)
+        loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
       },
       {
         path: '',

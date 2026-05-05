@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   title: string = 'Hello, Angular';
-  operation = (25 + 15) * 2 - 10 / 5;
+
+  operation: number = (15 + 7) * 3 - 10 / 2;
 }

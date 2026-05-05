@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/@theme/styles/theme-variables.css"
             ],
             "scripts": []
           },
@@ -57,10 +58,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "proxyConfig": "proxy.conf.json"
           },
-          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "cnt-group:build:production"
@@ -99,6 +100,6 @@
     }
   },
   "cli": {
-    "analytics": "04e05e86-8a33-4511-9d99-2c0bb03ae323"
+    "analytics": false
   }
 }

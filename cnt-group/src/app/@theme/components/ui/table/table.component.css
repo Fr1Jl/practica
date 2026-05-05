@@ -4,21 +4,33 @@ table {
 }
 
 th, td {
-  padding: 10px;
-  font-size: 17px;
+  border: 1px solid var(--block-child-border-color);
+  padding: 8px;
 }
 
 th {
   background-color: var(--block-background);
 }
 
-td {
+
+.even-row td {
   background-color: var(--block-child-background);
-  text-align: center;
 }
 
-tbody tr:hover td {
-  background-color: rgba(61, 83, 209, 0.767) !important;
+.odd-row td {
+  background-color: var(--block-background);
+}
+
+.selected-row td {
+  background-color: var(--selected-row-background, #2c3e50) !important;
+  color: var(--selected-row-color, white);
+}
+
+.selected-row {
+  font-weight: bold;
+}
+
+tr:not(.selected-row):hover td {
+  background-color: var(--row-hover-background, rgba(52, 152, 219, 0.1)) !important;
   cursor: pointer;
-  color: whitesmoke;
 }

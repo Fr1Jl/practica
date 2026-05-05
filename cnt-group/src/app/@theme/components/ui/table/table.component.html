@@ -5,12 +5,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of data; let i = index" (click)="onRowClick(row)">
-      <td *ngFor="let header of dataKeys" [ngStyle]="{
-        background: i % 2 === 0
-          ? 'var(--block-child-background)'
-          : 'var(--block-background)'
+    <tr
+      *ngFor="let row of data; let i = index"
+      (click)="onRowClick(row)"
+      [ngClass]="{
+        'selected-row': isRowSelected(row),
+        'even-row': !isRowSelected(row) && i % 2 === 0,
+        'odd-row': !isRowSelected(row) && i % 2 === 1
       }">
+      <td *ngFor="let header of dataKeys">
         {{ row[header] }}
       </td>
     </tr>

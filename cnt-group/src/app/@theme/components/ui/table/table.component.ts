@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core
 export class TableComponent implements OnChanges {
   @Input() columnHeaders: string[] = [];
   @Input() data: any[] = [];
+  @Input() selectedRow: any = null;
   @Output() rowClick = new EventEmitter<any>();
   dataKeys: string[] = [];
 
@@ -17,7 +18,12 @@ export class TableComponent implements OnChanges {
     }
   }
 
-  onRowClick(user: any) {
-    this.rowClick.emit(user);
+  onRowClick(row: any) {
+    this.rowClick.emit(row);
+  }
+
+  isRowSelected(row: any): boolean {
+    if (!this.selectedRow || !row) return false;
+    return row.userId === this.selectedRow.userId;
   }
 }

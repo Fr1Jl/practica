@@ -1,17 +1,34 @@
-.result-container {
-  text-align: center;
-  margin-top: 2rem;
-  font-family: Arial, sans-serif;
+.app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
-.result {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  font-weight: bold;
-  margin: 1rem 0;
+.main-wrapper {
+  display: flex;
+  height: 100vh;
 }
 
-small {
-  color: #7f8c8d;
-  font-style: italic;
+.content-area {
+  margin-left: 250px;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  height: 100vh;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .content-area {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .content-area {
+    margin-left: 60px;
+  }
 }
