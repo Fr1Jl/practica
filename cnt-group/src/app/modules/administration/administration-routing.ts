@@ -5,12 +5,17 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admins',
     component: AdminPageComponent,
   },
   {
     path: 'users',
     component: UsersPageComponent
+  },
+  {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
   }
 ];
 

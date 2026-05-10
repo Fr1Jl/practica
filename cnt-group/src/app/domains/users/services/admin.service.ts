@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Admin, CreateAdminDto, UpdateAdminDto, AdminLoginDto, AdminLoginResponse } from '../modules/admin.model';
 
 @Injectable({
@@ -11,57 +12,38 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * GET - Получение всех администраторов
-   */
   getAllAdmins(includeInactive?: boolean): Observable<Admin[]> {
     let params = new HttpParams();
     if (includeInactive !== undefined) {
       params = params.set('include_inactive', includeInactive.toString());
     }
-    return this.http.get<Admin[]>(`${this.apiUrl}/admins`, { params });
+    return this.http.get<any>(`${this.apiUrl}/admins`, { params, withCredentials: true }).pipe(
+      map(response => response.admins)
+    );
   }
 
-  /**
-   * GET - Получение администратора по ID
-   */
   getAdminById(id: number): Observable<Admin> {
-    return this.http.get<Admin>(`${this.apiUrl}/admins/${id}`);
+    return this.http.get<Admin>(`${this.apiUrl}/admins/${id}`, { withCredentials: true });
   }
 
-  /**
-   * POST - Создание администратора
-   */
   createAdmin(data: CreateAdminDto): Observable<Admin> {
-    return this.http.post<Admin>(`${this.apiUrl}/admins`, data);
+    return this.http.post<Admin>(`${this.apiUrl}/admins`, data, { withCredentials: true });
   }
 
-  /**
-   * PATCH - Частичное обновление администратора
-   */
   updateAdmin(id: number, data: UpdateAdminDto): Observable<Admin> {
-    return this.http.patch<Admin>(`${this.apiUrl}/admins/${id}`, data);
+    return this.http.patch<Admin>(`${this.apiUrl}/admins/${id}`, data, { withCredentials: true });
   }
 
-  /**
-   * DELETE - Удаление администратора
-   */
   deleteAdmin(id: number, hard: boolean = false): Observable<any> {
     let params = new HttpParams().set('hard', hard.toString());
-    return this.http.delete(`${this.apiUrl}/admins/${id}`, { params });
+    return this.http.delete(`${this.apiUrl}/admins/${id}`, { params, withCredentials: true });
   }
 
-  /**
-   * POST - Авторизация
-   */
   login(loginData: AdminLoginDto): Observable<AdminLoginResponse> {
-    return this.http.post<AdminLoginResponse>(`${this.apiUrl}/admins/admin_sign_in`, loginData);
+    return this.http.post<AdminLoginResponse>(`${this.apiUrl}/admins/admin_sign_in`, loginData, { withCredentials: true });
   }
 
-  /**
-   * POST - Выход
-   */
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/admins/admin_sign_out`, {});
+    return this.http.post(`${this.apiUrl}/admins/admin_sign_out`, {}, { withCredentials: true });
   }
 }
