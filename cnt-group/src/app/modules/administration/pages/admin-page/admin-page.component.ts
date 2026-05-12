@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../../../domains/users/services/admin.service';
+import { AdminLocalService } from '../../../../domains/users/services/admin-local.service';
 import { Admin, CreateAdminDto, UpdateAdminDto } from '../../../../domains/users/modules/admin.model';
 
 @Component({
@@ -21,7 +21,7 @@ export class AdminPageComponent implements OnInit {
     admin_birth_date: ''
   };
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminLocalService) {}
 
   ngOnInit(): void {
     this.loadAdmins();
